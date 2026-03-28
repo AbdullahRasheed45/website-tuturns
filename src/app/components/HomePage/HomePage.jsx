@@ -13,10 +13,19 @@ const TypeAnimation = dynamic(() =>
 );
 
 const ExploreUs = dynamic(() => import("../ExploreUs/ExploreUs"));
+const TestimonialsSection = dynamic(() =>
+  import("../TestimonialsSection/TestimonialsSection")
+);
+const HomeFaq = dynamic(() => import("../HomeFaq/HomeFaq"));
+const FinalContactSection = dynamic(() =>
+  import("../FinalContactSection/FinalContactSection")
+);
 
-const PHONE = "+971504463928";
+const PHONE = "971504463928";
 const PHONE_DISPLAY = "+971 50 446 3928";
-const WHATSAPP_MSG = encodeURIComponent("Hi TuTurns! I'd like to find a tutor. Please help me.");
+const WHATSAPP_MSG = encodeURIComponent(
+  "Hi TuTurns! I found you online and I'd like help finding the right tutor. Can you help me?"
+);
 
 const HomePage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -46,14 +55,26 @@ const HomePage = () => {
         <div className="hero-container">
           {/* ---- LEFT: Copy & CTAs ---- */}
           <div className={`hero-content ${isVisible ? "visible" : ""}`}>
-            {/* Social proof badge */}
             <div className="hero-badge">
               <span className="badge-dot"></span>
               <span>Trusted by <strong>1,200+</strong> Students Across UAE &amp; UK</span>
             </div>
 
             <h1 className="hero-title">
-              Find the <span className="hero-title-highlight">Right Tutor<svg className="highlight-underline" viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M0,10 Q50,0 100,8 T200,6" stroke="url(#grad)" strokeWidth="4" fill="none" strokeLinecap="round"/><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stopColor="var(--accent)"/><stop offset="100%" stopColor="var(--accent-light)"/></linearGradient></defs></svg></span> &amp; Improve Your Grades
+              Find the{" "}
+              <span className="hero-title-highlight">
+                Right Tutor
+                <svg className="highlight-underline" viewBox="0 0 200 12" preserveAspectRatio="none">
+                  <path d="M0,10 Q50,0 100,8 T200,6" stroke="url(#grad)" strokeWidth="4" fill="none" strokeLinecap="round"/>
+                  <defs>
+                    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="var(--accent)"/>
+                      <stop offset="100%" stopColor="var(--accent-light)"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </span>{" "}
+              &amp; Improve Your Grades
             </h1>
 
             <div className="hero-typing">
@@ -78,8 +99,8 @@ const HomePage = () => {
 
             <p className="hero-description">
               Get matched with a verified expert tutor in under 24 hours.
-              Personalised sessions for O-Levels, A-Levels, IGCSE and more.
-              <strong> Results guaranteed or your money back.</strong>
+              Personalised sessions for O-Levels, A-Levels, IGCSE and more.{" "}
+              <strong>Results guaranteed or your money back.</strong>
             </p>
 
             {/* Primary CTAs */}
@@ -91,10 +112,7 @@ const HomePage = () => {
                 </svg>
               </Link>
 
-              <a
-                href={`tel:${PHONE}`}
-                className="cta-phone"
-              >
+              <a href={`tel:+${PHONE}`} className="cta-phone">
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
                 </svg>
@@ -102,7 +120,7 @@ const HomePage = () => {
               </a>
             </div>
 
-            {/* WhatsApp quick link */}
+            {/* WhatsApp */}
             <a
               href={`https://wa.me/${PHONE}?text=${WHATSAPP_MSG}`}
               target="_blank"
@@ -115,7 +133,7 @@ const HomePage = () => {
               WhatsApp Us for Quick Enquiry
             </a>
 
-            {/* Stats row */}
+            {/* Stats */}
             <div className="hero-stats">
               <div className="stat-item">
                 <span className="stat-number">1,200+</span>
@@ -155,7 +173,6 @@ const HomePage = () => {
                     style={{ objectFit: "cover" }}
                   />
                 </div>
-                {/* Floating badge on image */}
                 <div className="image-badge image-badge-top">
                   <span className="badge-icon">⭐</span>
                   <div>
@@ -175,7 +192,6 @@ const HomePage = () => {
               <div className="floating-image floating-image-1">
                 <Image src={Image2} alt="Student online class" fill quality={85} sizes="200px" style={{ objectFit: "cover" }} />
               </div>
-
               <div className="floating-image floating-image-2">
                 <Image src={Image3} alt="Tutoring session" fill quality={85} sizes="180px" style={{ objectFit: "cover" }} />
               </div>
@@ -187,7 +203,7 @@ const HomePage = () => {
           </div>
         </div>
 
-        {/* Subject pills trust bar */}
+        {/* Subject trust bar */}
         <div className="hero-trust-bar">
           <span className="trust-label">Specialising in:</span>
           {trustLogos.map((s) => (
@@ -201,7 +217,11 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Page flow — conversion-ordered sections */}
       <ExploreUs />
+      <TestimonialsSection />
+      <HomeFaq />
+      <FinalContactSection />
     </>
   );
 };

@@ -1,0 +1,123 @@
+/* =============================
+   FAQ SECTION
+============================= */
+.homefaq {
+  background: var(--background);
+}
+
+.homefaq-wrap {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.homefaq-kicker {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-full);
+  background: rgba(245, 158, 11, 0.1);
+  color: #b45309;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.homefaq-left .section-title {
+  margin-bottom: 0.75rem;
+}
+
+.homefaq-left .section-subtitle {
+  margin-bottom: 1.5rem;
+}
+
+.homefaq-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.3rem;
+  background: var(--primary-gradient);
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(10, 77, 124, 0.3);
+  transition: all var(--transition);
+}
+
+.homefaq-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(10, 77, 124, 0.4);
+}
+
+/* Accordion */
+.homefaq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.homefaq-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.homefaq-card--open {
+  border-color: rgba(10, 77, 124, 0.3);
+  box-shadow: 0 4px 16px rgba(10, 77, 124, 0.08);
+}
+
+.homefaq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.97rem;
+  font-weight: 600;
+  color: var(--foreground);
+  text-align: left;
+  transition: background var(--transition-fast);
+}
+
+.homefaq-question:hover {
+  background: var(--background-secondary);
+}
+
+.homefaq-chevron {
+  flex-shrink: 0;
+  color: var(--primary);
+  transition: transform var(--transition);
+}
+
+.homefaq-card--open .homefaq-chevron {
+  transform: rotate(180deg);
+}
+
+.homefaq-answer {
+  padding: 0 1.25rem 1.1rem;
+}
+
+.homefaq-answer p {
+  font-size: 0.95rem;
+  color: var(--foreground-secondary);
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .homefaq-wrap {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
