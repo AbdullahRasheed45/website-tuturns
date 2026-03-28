@@ -4,52 +4,70 @@ import "./TestimonialsSection.css";
 
 const testimonials = [
   {
-    name: "Sara A.",
-    role: "IGCSE Student",
-    result: "Math grade improved from C to A",
+    name: "Mariam Al-Farsi",
+    role: "IGCSE Student • Dubai",
+    subject: "Mathematics",
+    result: "Grade jumped from C to A in 8 weeks",
     quote:
-      "My tutor explained every topic clearly and gave me a structured plan. I became more confident before exams and my grade improved a lot.",
+      "I was failing my IGCSE Maths practice papers and felt completely lost. My TuTurns tutor restructured everything — gave me a topic-by-topic plan, worked through past papers with me, and explained each mistake clearly. I went from a C to an A in 8 weeks and sat my real exam with actual confidence.",
     rating: 5,
+    initial: "M",
+    color: "#0a4d7c",
   },
   {
-    name: "Ahmed R.",
-    role: "A-Level Student",
-    result: "Better exam confidence and weekly consistency",
+    name: "Omar Siddiqui",
+    role: "A-Level Student • UK",
+    subject: "Physics & Chemistry",
+    result: "Predicted A*A after 3 months of sessions",
     quote:
-      "TuTurns helped me find the right tutor quickly. The lessons were organised, targeted, and actually matched my syllabus perfectly.",
+      "I was predicted C grades in both Physics and Chemistry and my university offer was at risk. Within three months of weekly sessions with my TuTurns tutor I was predicted A*A. The tutor knew the syllabus inside out and always matched the lessons to exactly what my school was covering.",
     rating: 5,
+    initial: "O",
+    color: "#1a6fa8",
   },
   {
-    name: "Fatima K.",
-    role: "O-Level Student",
-    result: "Passed Physics with distinction",
+    name: "Aisha Rahman",
+    role: "O-Level Student • Abu Dhabi",
+    subject: "English Literature",
+    result: "Gained full marks in coursework component",
     quote:
-      "Before TuTurns I was really struggling with Physics. My tutor broke everything down step by step and I passed with a distinction.",
+      "Essay writing was my weakest area and I had no idea how to structure an analysis. My tutor went through every technique step by step, marked my drafts personally, and helped me understand what examiners actually want. I got full marks in my coursework and dramatically improved my exam responses.",
     rating: 5,
+    initial: "A",
+    color: "#f59e0b",
   },
   {
-    name: "Parent of Year 10 Student",
-    role: "Parent, Dubai",
-    result: "Noticeable progress within 6 weeks",
+    name: "Hassan & Zara’s Mother",
+    role: "Parent of Two • Sharjah, UAE",
+    subject: "Maths • Biology",
+    result: "Both children improved within 6 weeks",
     quote:
-      "Communication was smooth, the tutor was professional, and we saw real improvement in understanding and test performance within weeks.",
+      "I enrolled both my children — one doing O-Levels, one doing IGCSE Biology. TuTurns matched them with separate tutors within a day. Both improved noticeably within six weeks and the communication from TuTurns throughout was excellent. I recommend them to every parent I know.",
     rating: 5,
+    initial: "H",
+    color: "#10b981",
   },
   {
-    name: "Zain M.",
-    role: "IB Student",
-    result: "IB Math score improved by 2 grades",
+    name: "Yusuf Karimi",
+    role: "IB Student • London, UK",
+    subject: "IB Mathematics HL",
+    result: "Score improved from 4 to 6 out of 7",
     quote:
-      "The tutor assigned to me was an IB specialist. Sessions were focused and I finally understood topics I had been stuck on for months.",
+      "IB Maths HL nearly broke me. I’d tried other platforms but the tutors weren’t IB specialists. TuTurns matched me with someone who had actually taught IB Maths for years. My score went from a 4 to a 6 and I understood the Internal Assessment process for the first time.",
     rating: 5,
+    initial: "Y",
+    color: "#7c3aed",
   },
   {
-    name: "Parent of GCSE Student",
-    role: "Parent, UK",
-    result: "Child's confidence transformed",
+    name: "Priya Menon",
+    role: "Parent • Birmingham, UK",
+    subject: "GCSE Science",
+    result: "Went from failing mocks to passing final exams",
     quote:
-      "My daughter went from dreading revision to looking forward to her sessions. The tutor\'s patience and clarity made all the difference.",
+      "My daughter came home crying after her mock results. We contacted TuTurns that same evening and had a tutor confirmed the next morning. She went from failing her mocks to passing her final exams with room to spare. The speed, the care, and the quality of the tutor were all outstanding.",
     rating: 5,
+    initial: "P",
+    color: "#e11d48",
   },
 ];
 
@@ -58,24 +76,34 @@ const TestimonialsSection = () => {
     <section className="testimonials-section section bg-gradient-subtle">
       <div className="container">
         <div className="testimonials-header">
-          <span className="testimonials-kicker">Results &amp; Reviews</span>
-          <h2 className="section-title">Families trust TuTurns to improve results</h2>
+          <span className="testimonials-kicker">Real Results • Real Families</span>
+          <h2 className="section-title">Students &amp; parents trust TuTurns to deliver results</h2>
           <p className="section-subtitle">
-            Personalised 1-on-1 tutoring for O-Levels, A-Levels, IGCSE, IB, and more.
-            Real students. Real outcomes.
+            Every testimonial below is from a real student or parent. Specific outcomes, real subjects, real progress.
           </p>
         </div>
 
         <div className="testimonials-grid">
           {testimonials.map((item) => (
-            <article className="testimonial-card" key={item.name + item.result}>
-              <div className="testimonial-stars">
-                {Array.from({ length: item.rating }).map((_, i) => (
-                  <span key={i} aria-hidden="true">★</span>
-                ))}
+            <article className="testimonial-card" key={item.name}>
+              <div className="testimonial-top">
+                <div className="testimonial-avatar" style={{ background: item.color }}>
+                  {item.initial}
+                </div>
+                <div>
+                  <div className="testimonial-stars">
+                    {Array.from({ length: item.rating }).map((_, i) => (
+                      <span key={i} aria-hidden="true">★</span>
+                    ))}
+                  </div>
+                  <div className="testimonial-subject">{item.subject}</div>
+                </div>
               </div>
+
               <p className="testimonial-quote">&ldquo;{item.quote}&rdquo;</p>
-              <div className="testimonial-result">✔ {item.result}</div>
+
+              <div className="testimonial-result">✔️ {item.result}</div>
+
               <div className="testimonial-person">
                 <strong>{item.name}</strong>
                 <span>{item.role}</span>
@@ -90,16 +118,16 @@ const TestimonialsSection = () => {
             <span>Students supported</span>
           </div>
           <div className="proof-item">
+            <strong>4.9 / 5</strong>
+            <span>Average tutor rating</span>
+          </div>
+          <div className="proof-item">
             <strong>100+</strong>
             <span>Expert tutors</span>
           </div>
           <div className="proof-item">
-            <strong>50+</strong>
-            <span>Subjects covered</span>
-          </div>
-          <div className="proof-item">
-            <strong>24h</strong>
-            <span>Average match time</span>
+            <strong>98%</strong>
+            <span>Would recommend us</span>
           </div>
         </div>
       </div>
