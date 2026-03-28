@@ -5,6 +5,9 @@ import { Lato, Inter } from "next/font/google";
 
 const Footer = dynamic(() => import("./components/Footer/Footer"));
 const AuthProvider = dynamic(() => import("./components/AuthProvider"));
+const FloatingContactCTA = dynamic(() =>
+  import("./components/FloatingContactCTA/FloatingContactCTA")
+);
 
 const lato = Lato({
   subsets: ["latin"],
@@ -18,11 +21,19 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "TuTurns | A Tutoring Solution",
+  title: "TuTurns | Expert O-Level, A-Level & IGCSE Tutors",
   description:
-    "TuTurns offers comprehensive tutoring services for O/A Level, GCSE, and IGCSE boards. Achieve academic success with our experienced tutors.",
+    "Find verified expert tutors for O-Levels, A-Levels, IGCSE and IB. Get matched in under 24 hours. Free consultation available. Call +971 50 446 3928.",
   manifest: "/manifest.ts",
   themeColor: "#0a4d7c",
+  keywords:
+    "online tutor, O-level tutor, A-level tutor, IGCSE tutor, IB tutor, tutoring UAE, tutoring UK, TuTurns",
+  openGraph: {
+    title: "TuTurns | Expert O-Level, A-Level & IGCSE Tutors",
+    description:
+      "Find verified expert tutors for O-Levels, A-Levels, IGCSE and IB. Free consultation: +971 50 446 3928",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -33,6 +44,7 @@ export default function RootLayout({ children }) {
           <Navbar />
           {children}
           <Footer />
+          <FloatingContactCTA />
         </AuthProvider>
       </body>
     </html>
